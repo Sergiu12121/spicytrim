@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spicy Trim – Tunsori & Bărbierit cu prosop fierbinte</title>
+  <meta name="description" content="Spicy Trim – Frizerie premium pe Igor Vieru 8/3. Tunsori, aranjare barbă, bărbierit cu prosop fierbinte. Rezervă online sau sună 060066119." />
+
+  <!-- ====== Quick Theme Variables (edit these) ====== -->
+  <style>
+    :root{
+      --bg:#0f1115;          /* page background */
+      --bg-alt:#141821;      /* cards/sections */
+      --text:#e7e9ee;        /* primary text */
+      --muted:#a7adbb;       /* secondary text */
+      --brand:#d4a64a;       /* gold accent */
+      --brand-2:#9e7a2b;     /* darker accent */
+      --error:#ef4444;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1200px;          /* content width */
+      --font:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --font-display:"Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin-inline:auto;padding-inline:20px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:999px;background:var(--brand);color:#1b1b1b;font-weight:600;border:1px solid transparent;box-shadow:var(--shadow)}
+    .btn:hover{filter:brightness(.95)}
+    .btn.ghost{background:transparent;border-color:var(--brand);color:var(--text)}
+    .badge{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:rgba(212,166,74,.15);border:1px solid rgba(212,166,74,.4);color:var(--brand);font-weight:600;letter-spacing:.02em}
+    .section{padding:72px 0}
+    .section h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.4vw,44px);line-height:1.2;margin:0 0 14px}
+    .section p.lead{color:var(--muted);font-size:1.05rem;margin:0 0 20px}
+    .grid{display:grid;gap:24px}
+    .card{background:var(--bg-alt);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card .pad{padding:22px}
+
+    /* ===== Top Bar & Nav ===== */
+    .topbar{background:#0b0d11;border-bottom:1px solid rgba(255,255,255,.06);font-size:.95rem}
+    .topbar .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:8px 0;color:var(--muted)}
+    .topbar .contact{display:flex;gap:18px;flex-wrap:wrap}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.72);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.03em}
+    .brand .mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;overflow:hidden}
+    .brand .mark img{width:100%;height:100%;object-fit:cover}
+    .links{display:flex;gap:22px;align-items:center}
+    .links a{opacity:.85}
+    .links a:hover{opacity:1}
+    .burger{display:none}
+
+    /* ===== Hero ===== */
+    .hero{position:relative;isolation:isolate;background:radial-gradient(1200px 500px at 20% -10%,rgba(212,166,74,.18),transparent 60%),radial-gradient(1000px 600px at 120% 10%,rgba(136,165,255,.08),transparent 60%)}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:48px 0}
+    .hero h1{font-family:var(--font-display);font-size:clamp(34px,4.4vw,68px);line-height:1.05;margin:0 0 10px}
+    .hero .kicker{margin-bottom:6px}
+    .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+    .hero .photo{position:relative}
+    .hero .photo .frame{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+
+    /* ===== Services ===== */
+    .services .cards{grid-template-columns:repeat(3,1fr)}
+    .service{display:flex;gap:14px}
+    .service .icon{width:46px;height:46px;border-radius:12px;background:rgba(212,166,74,.14);display:grid;place-items:center;border:1px solid rgba(212,166,74,.4)}
+
+    /* ===== Pricing ===== */
+    .pricing .plans{grid-template-columns:repeat(3,1fr)}
+    .price{font-size:1.6rem;font-weight:800;color:var(--brand)}
+    .plans .card ul{margin:14px 0 0;padding:0;list-style:none;color:var(--muted)}
+    .plans .card li{display:flex;gap:10px;margin:8px 0;justify-content:space-between}
+
+    /* ===== Gallery ===== */
+    .gallery .grid{grid-template-columns:repeat(6,1fr)}
+    .gallery img{border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+
+    /* ===== Booking & Testimonials ===== */
+    .booking .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}
+    form{display:grid;gap:12px}
+    input,select,textarea{background:#0d1016;border:1px solid rgba(255,255,255,.08);color:var(--text);padding:12px 14px;border-radius:12px;font:inherit}
+    label{font-size:.95rem;color:var(--muted)}
+    .error{display:none;color:var(--error);font-size:.9rem}
+
+    /* ===== Footer ===== */
+    footer{background:#0b0d11;margin-top:72px;border-top:1px solid rgba(255,255,255,.06)}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+    .social{display:flex;gap:10px}
+    .social a{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.12)}
+    .legal{color:var(--muted);font-size:.9rem;margin-top:24px}
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px){
+      .hero .wrap{grid-template-columns:1fr}
+      .services .cards,.pricing .plans{grid-template-columns:repeat(2,1fr)}
+      .gallery .grid{grid-template-columns:repeat(3,1fr)}
+      .booking .wrap{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 680px){
+      .links{display:none}
+      .burger{display:inline-flex}
+      .services .cards,.pricing .plans{grid-template-columns:1fr}
+      .gallery .grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ===== Topbar ===== -->
+  <div class="topbar">
+    <div class="container wrap">
+      <div class="contact">
+        <span>📍 Igor Vieru 8/3</span>
+      </div>
+      <div class="contact">
+        <a href="tel:060066119">📞 060066119</a>
+        <a href="#booking" class="badge">Rezervă</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
+    <div class="container wrap">
+      <a class="brand" href="#home">
+        <span class="mark"><img src="logo.jpg" alt="Spicy Trim"></span>
+        <span>Spicy Trim</span>
+      </a>
+      <div class="links">
+        <a href="#services">Servicii</a>
+        <a href="#pricing">Prețuri</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#booking">Rezervare</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="burger btn ghost" aria-label="Deschide meniul" onclick="toggleMenu()">Meniu</button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header id="home" class="hero">
+    <div class="container wrap">
+      <div>
+        <div class="badge kicker">Barberi maeștri • Calitate premium</div>
+        <h1>Tunsori precise. Bărbierit cu prosop fierbinte. <span style="color:var(--brand)">Încredere</span> inclusă.</h1>
+        <p class="lead">De la pompadour clasic la skin fade modern – realizăm look‑uri care se potrivesc stilului tău. Băuturi din partea casei și produse profesionale.</p>
+        <div class="cta">
+          <a class="btn" href="#booking">Rezervă o programare</a>
+          <a class="btn ghost" href="tel:060066119">Sună acum</a>
+        </div>
+      </div>
+      <div class="photo">
+        <figure class="frame">
+          <img src="logo.jpg" alt="Bărbierit cu prosop fierbinte" />
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Services ===== -->
+  <section id="services" class="section services">
+    <div class="container">
+      <h2>Servicii</h2>
+      <p class="lead">Grooming premium cu atenție la detalii. Consultanță, prosop fierbinte și styling final.</p>
+      <div class="grid cards">
+        <div class="card"><div class="pad service">
+          <div class="icon">💈</div>
+          <div>
+            <h3>Tuns Clasic</h3>
+            <p class="muted">Tunsoră cu foarfecă/mașină, spălare și styling.</p>
+          </div>
+        </div></div>
+        <div class="card"><div class="pad service">
+          <div class="icon">🧔</div>
+          <div>
+            <h3>Aranjare Barbă</h3>
+            <p class="muted">Contur, prosop fierbinte și ulei pentru barbă.</p>
+          </div>
+        </div></div>
+        <div class="card"><div class="pad service">
+          <div class="icon">🪒</div>
+          <div>
+            <h3>Bărbierit tradițional</h3>
+            <p class="muted">Abur, pre‑shave, brici, prosop rece la final.</p>
+          </div>
+        </div></div>
+        <div class="card"><div class="pad service">
+          <div class="icon">✨</div>
+          <div>
+            <h3>Skin Fade</h3>
+            <p class="muted">Fade precis cu line‑up detaliat.</p>
+          </div>
+        </div></div>
+        <div class="card"><div class="pad service">
+          <div class="icon">👦</div>
+          <div>
+            <h3>Tuns Copii</h3>
+            <p class="muted">Răbdare și atenție (6–10 ani).</p>
+          </div>
+        </div></div>
+        <div class="card"><div class="pad service">
+          <div class="icon">🎁</div>
+          <div>
+            <h3>Pachete</h3>
+            <p class="muted">Combină servicii și economisește.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section id="pricing" class="section pricing">
+    <div class="container">
+      <h2>Prețuri</h2>
+      <p class="lead">Tarife transparente. Experiență premium.</p>
+      <div class="grid plans">
+        <div class="card"><div class="pad">
+          <h3>Tuns & Păr</h3>
+          <ul>
+            <li><span>Frizură PRO Barber</span> <strong>280 LEI</strong></li>
+            <li><span>Frizură TOP Barber</span> <strong>330 LEI</strong></li>
+            <li><span>Frizură Păr Lung PRO</span> <strong>330 LEI</strong></li>
+            <li><span>Frizură Păr Lung TOP</span> <strong>380 LEI</strong></li>
+          </ul>
+        </div></div>
+        <div class="card" style="border-color:rgba(212,166,74,.5)"><div class="pad">
+          <div class="badge">Popular</div>
+          <h3>Barbă & Complex</h3>
+          <ul>
+            <li><span>Complex PRO</span> <strong>420 LEI</strong></li>
+            <li><span>Complex TOP</span> <strong>480 LEI</strong></li>
+            <li><span>Barbă PRO</span> <strong>200 LEI</strong></li>
+            <li><span>Barbă TOP</span> <strong>230 LEI</strong></li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="pad">
+          <h3>Copii & Aranjare</h3>
+          <ul>
+            <li><span>Frizură Copii PRO (6–10 ani)</span> <strong>250 LEI</strong></li>
+            <li><span>Frizură Copii TOP (6–10 ani)</span> <strong>280 LEI</strong></li>
+            <li><span>Aranjare PRO</span> <strong>70 LEI</strong></li>
+            <li><span>Aranjare TOP</span> <strong>100 LEI</strong></li>
+            <li><span>Tonarea Bărbii PRO</span> <strong>220 LEI</strong></li>
+            <li><span>Tonarea Bărbii TOP</span> <strong>220 LEI</strong></li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section id="gallery" class="section gallery">
+    <div class="container">
+      <h2>Galerie</h2>
+      <p class="lead">Câteva lucrări recente. Etichetează-ne pentru a fi afișat.</p>
+      <div class="grid">
+        <img src="creatie1.png" alt="Fade haircut">
+        <img src="creatie2.png" alt="Classic cut">
+        <img src="creatie1.png" alt="Beard trim">
+        <img src="creatie2.png" alt="Pompadour">
+        <img src="creatie1.png" alt="Straight razor shave">
+        <img src="creatie2.png" alt="Crew cut">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Booking ===== -->
+  <section id="booking" class="section booking">
+    <div class="container">
+      <h2>Rezervare</h2>
+      <p class="lead">Alege varianta preferată: <strong>telefon</strong> sau <strong>rezervare online</strong>.</p>
+
+      <div class="wrap" style="display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch">
+        <!-- Varianta 1: Sună -->
+        <div class="card"><div class="pad">
+          <h3>📞 Sună acum</h3>
+          <p>Pentru programări rapide și întrebări, sună la numărul nostru.</p>
+          <a class="btn" href="tel:060066119">Sună 060066119</a>
+          <p style="color:var(--muted);margin-top:10px">Program: Luni–Sâmbătă 9:00–20:00 • Duminică 10:00–16:00</p>
+        </div></div>
+
+        <!-- Varianta 2: Online -->
+        <div class="card"><div class="pad">
+          <h3>💻 Rezervare online</h3>
+          <p>Rezervă direct locul tău în calendarul Spicy Trim.</p>
+          <a class="btn" href="https://n1381584.alteg.io" target="_blank" rel="noopener">Deschide rezervarea online</a>
+          <!-- Dacă dorești embed în pagină, putem integra un widget aici (dacă platforma îl oferă). -->
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="lead">Ne găsești pe Igor Vieru 8/3. Parcare stradală disponibilă.</p>
+      <div class="grid" style="grid-template-columns:1.2fr .8fr">
+        <div class="card"><div class="pad" style="padding:0">
+          <iframe title="Hartă" width="100%" height="380" style="border:0;border-radius:var(--radius)" loading="lazy" allowfullscreen
+            src="https://www.google.com/maps?q=Igor%20Vieru%208%2F3&output=embed"></iframe>
+        </div></div>
+        <div class="card"><div class="pad">
+          <h3>Date contact</h3>
+          <p>Telefon: <a href="tel:060066119">060066119</a><br>
+          Email: <a href="mailto:spicytrim@example.com">spicytrim@example.com</a></p>
+          <p>Program:<br>Luni–Sâmbătă 9:00–20:00 • Duminică 10:00–16:00</p>
+          <div class="social">
+            <a href="https://www.instagram.com/spicytrim_barbershopp?igsh=MWJ3OTRkZDg5c28xZA==" aria-label="Instagram">📸</a>
+            <a href="https://www.tiktok.com/@spicy.trim.barber?_t=ZM-8zL8x0tQ3Iz&_r=1" aria-label="TikTok">🎵</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container section" style="padding:32px 0">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><span class="mark"><img src="logo.jpg" alt="Spicy Trim"></span><span>Spicy Trim</span></div>
+          <p style="color:var(--muted);max-width:60ch">Frizerie modernă cu valori clasice. Produse premium, barberi profesioniști și rezervare ușoară.</p>
+        </div>
+        <div>
+          <h4>Linkuri rapide</h4>
+          <p><a href="#services">Servicii</a><br><a href="#pricing">Prețuri</a><br><a href="#booking">Rezervare</a></p>
+        </div>
+        <div>
+          <h4>Politici</h4>
+          <p><a href="#">Anulare</a><br><a href="#">Confidențialitate</a><br><a href="#">Carduri cadou</a></p>
+        </div>
+      </div>
+      <div class="legal">© <span id="year"></span> Spicy Trim. Toate drepturile rezervate.</div>
+    </div>
+  </footer>
+
+  <!-- ===== Minimal JS ===== -->
+  <script>
+    function toggleMenu(){
+      const links = document.querySelector('.links');
+      if(!links) return;
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.gap = '14px';
+      links.style.padding = '14px 0';
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const required = ['service','name','phone','date','time'];
+      const missing = required.some(id => !document.getElementById(id).value);
+      const err = document.getElementById('err');
+      if(missing){ err.style.display = 'block'; return false; }
+      err.style.display = 'none';
+      const data = {
+        service: document.getElementById('service').value,
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        notes: document.getElementById('notes').value
+      };
+      alert(`Mulțumim, ${data.name}! Îți confirmăm prin SMS programarea pentru ${data.service} pe ${data.date} la ${data.time}.`);
+      e.target.reset();
+      return false;
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
